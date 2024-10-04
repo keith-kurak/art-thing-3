@@ -26,34 +26,12 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   return (
-      <View className="flex-1 sm:w-7/12 sm:self-center">
-        <View className="max-sm:hidden py-4 flex-row gap-x-4 justify-end">
-          <Link href="/(tabs)" asChild>
-            <Pressable>
-              <TabBarIcon type="MaterialIcons" name="museum" />
-            </Pressable>
-          </Link>
-          <Link href="/(tabs)/two" asChild>
-            <Pressable>
-              <TabBarIcon type="FontAwesome" name="star" />
-            </Pressable>
-          </Link>
-          <Link href="/visit" asChild>
-            <Pressable>
-              <TabBarIcon type="FontAwesome" name="info-circle" />
-            </Pressable>
-          </Link>
-        </View>
-        <Stack
-          screenOptions={{
-            headerBackTitleVisible: false,
-          }}
-        >
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="visit" options={{ presentation: "modal" }} />
-          <Stack.Screen name="help" options={{ presentation: "modal" }} />
-        </Stack>
-        <View className="max-sm:hidden h-8" />
-      </View>
+    <Stack
+      screenOptions={{
+        headerBackTitleVisible: false,
+      }}
+    >
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+    </Stack>
   );
 }

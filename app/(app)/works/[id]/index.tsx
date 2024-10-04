@@ -8,6 +8,7 @@ import { useFavStatusMutation } from '@/data/hooks/useFavStatusMutation'
 import colors from '@/constants/colors'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { LoadingShade } from '@/components/LoadingShade'
+import { stripTags } from '@/lib/utils'
 
 export default function WorkScreen() {
   const dimensions = useWindowDimensions()
@@ -95,8 +96,4 @@ export default function WorkScreen() {
       <LoadingShade isLoading={workQuery.isLoading || favQuery.isLoading} />
     </View>
   )
-}
-
-function stripTags(htmlish: string) {
-  return htmlish.replace(/<[^>]*>?/gm, '')
 }

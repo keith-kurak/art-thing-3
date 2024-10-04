@@ -15,27 +15,8 @@ import * as Application from "expo-application";
 import * as Updates from "expo-updates";
 
 export default function VisitScreen() {
-  const { isLarge } = useMediaQuery();
-
-  const updateInfo = Updates.useUpdates();
-
-  useEffect(() => {
-    (async function runAsync() {
-      const status = await Updates.checkForUpdateAsync();
-      if (status.isAvailable) {
-        await Updates.fetchUpdateAsync();
-      }
-    })();
-  }, []);
-
   return (
     <View className="flex-1">
-      <Stack.Screen
-        options={{
-          title: "Visit CMA",
-          headerLeft: isLarge ? () => null : undefined,
-        }}
-      />
       <ScrollView className="bg-shade-1">
         <View className="row-y-2 px-4 py-2">
           <Text className="text-4xl font-semibold text-center">
@@ -77,30 +58,6 @@ export default function VisitScreen() {
             {Application.nativeApplicationVersion}-
             {Application.nativeBuildVersion}
           </Text>
-          <Text className="text-l">{Updates.updateId || "n/a"}</Text>
-          {updateInfo.isChecking || updateInfo.isDownloading ? (
-            <ActivityIndicator size="small" />
-          ) : null}
-          {updateInfo.isUpdateAvailable && updateInfo.isUpdatePending ? (
-            <Pressable
-              onPress={() => {
-                Updates.reloadAsync();
-              }}
-            >
-              <Text className="text-xl my-2 text-tint">Update your app</Text>
-            </Pressable>
-          ) : null}
-          {updateInfo.downloadError ? (
-            <>
-              <Text className="text-l my-2 text-center">
-                There's an update available for your app, but the download
-                failed.
-              </Text>
-              <Text className="text-l my-2 text-center">
-                {updateInfo.downloadError?.message}
-              </Text>
-            </>
-          ) : null}
         </View>
       </ScrollView>
       {/* Use a light status bar on iOS to account for the black space above the modal */}

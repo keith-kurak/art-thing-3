@@ -1,6 +1,12 @@
-import { StyleSheet, TouchableOpacity, FlatList, View } from "react-native";
+import {
+  StyleSheet,
+  TouchableOpacity,
+  FlatList,
+  View,
+  Text,
+} from "react-native";
 import { Image } from "expo-image";
-import { Link } from "expo-router";
+import { Href, Link } from "expo-router";
 import { useFavsQuery } from "@/data/hooks/useFavsQuery";
 import { LoadingShade } from "@/components/LoadingShade";
 
@@ -13,9 +19,30 @@ export default function TabTwoScreen() {
     <View className="flex-1 bg-shade-1">
       <FlatList
         data={favs}
+        ListHeaderComponent={
+          <View>
+            <View className="py-4 px-4">
+              <View className="flex-row items-center gap-x-2">
+                <Image
+                  className="h-24 w-24 rounded-full"
+                  source={require("@/assets/images/profile.png")}
+                />
+                <View>
+                  <Text className="text-4xl font-semibold text-center">
+                    Your Name
+                  </Text>
+                  <Text className="italic">Member since 2023/03/14</Text>
+                </View>
+              </View>
+            </View>
+            <Text className="text-xl px-4 py-2 font-semibold bg-shade-2">
+              Favorites
+            </Text>
+          </View>
+        }
         renderItem={({ item }) => (
           <View style={styles.imageContainerStyle}>
-            <Link asChild href={`/works/${item.id}/`}>
+            <Link asChild href={`/works/${item.id}/` as Href}>
               <TouchableOpacity
                 key={item.id}
                 style={{ flex: 1 }}

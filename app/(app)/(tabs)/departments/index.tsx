@@ -9,8 +9,6 @@ export default function TabOneScreen() {
 
   const { isLarge } = useMediaQuery();
 
-  console.log(query.data)
-
   return (
     <View className="flex-1">
       <FlatList<{ department: string; imageUrl: string }>

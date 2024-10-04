@@ -24,7 +24,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Exhibits",
+          title: "Home",
           tabBarActiveTintColor: customColors.tint,
           tabBarIcon: ({ color }) => (
             <TabBarIcon type="MaterialIcons" name="museum" color={color} />
@@ -48,18 +48,27 @@ export default function TabLayout() {
       <Tabs.Screen
         name="departments"
         options={{
-          title: "Departments",
+          title: "Exhibits",
           tabBarIcon: ({ color }) => (
-            <TabBarIcon type="MaterialIcons" name="museum" color={color} />
+            <TabBarIcon type="MaterialIcons" name="palette" color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="favorites"
+        name="visit"
         options={{
-          title: "Favorites",
+          title: "Visit",
           tabBarIcon: ({ color }) => (
-            <TabBarIcon type="FontAwesome" name="star" color={color} />
+            <TabBarIcon type="MaterialIcons" name="map" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "Profile",
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon type="MaterialIcons" name="person" color={color} />
           ),
         }}
       />
