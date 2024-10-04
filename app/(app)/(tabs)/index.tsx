@@ -7,10 +7,8 @@ import { stripTags } from "@/lib/utils";
 export default function WhatsNewScreen() {
   const query = useRandomWorksQuery();
 
-  console.log(query.data);
-
   return (
-    <ScrollView className="flex-1" contentContainerClassName="mb-safe">
+    <ScrollView contentContainerClassName="mb-safe sm:w-1/2 sm:self-center">
       <View className="gap-y-2 px-4 py-4">
         <Text className="text-4xl font-semibold">Welcome back!</Text>
         <Text>See what's new.</Text>

@@ -9,7 +9,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "test": "jest --watchAll",
-    "strip-unused-fields-from-api-data": "node ./data/api/strip_fields.js"
+    "strip-unused-fields-from-api-data": "node ./data/api/strip_fields.js",
+    "postinstall": "patch-package"
   },
   "jest": {
     "preset": "jest-expo"
@@ -27,7 +28,7 @@
     "expo-image": "~1.13.0",
     "expo-linking": "~6.3.1",
     "expo-quick-actions": "^1.0.0",
-    "expo-router": "~3.5.23",
+    "expo-router": "4.0.0-canary-20240927-ab8a962",
     "expo-splash-screen": "~0.27.6",
     "expo-status-bar": "~1.12.1",
     "expo-system-ui": "~3.0.7",

@@ -1,0 +1,12 @@
+diff --git a/node_modules/expo-router/build/ui/TabSlot.js b/node_modules/expo-router/build/ui/TabSlot.js
+index 6466f77..e2c12ae 100644
+--- a/node_modules/expo-router/build/ui/TabSlot.js
++++ b/node_modules/expo-router/build/ui/TabSlot.js
+@@ -70,6 +70,7 @@ const styles = react_native_1.StyleSheet.create({
+     screenContainer: {
+         flexShrink: 0,
+         flexGrow: 1,
++        height: '100%',
+     },
+     focused: {
+         zIndex: 1,

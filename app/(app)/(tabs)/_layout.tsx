@@ -1,27 +1,93 @@
 import React from "react";
+import { View, StyleSheet, Text } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { Link, Tabs } from "expo-router";
+import { Tabs, TabList, TabSlot, TabTrigger } from "expo-router/build/ui";
+import { Link, Tabs as RNTabs } from "expo-router";
 import { Pressable } from "react-native";
 import { useClientOnlyValue } from "@/components/useClientOnlyValue";
 import customColors from "@/constants/colors";
-import { TabBarIcon } from '@/components/TabBarIcon';
-import { useMediaQuery } from '@/constants/useMediaQuery';
+import { TabBarIcon } from "@/components/TabBarIcon";
+import { useMediaQuery } from "@/constants/useMediaQuery";
+import { TabButton } from "@/lib/components/TabButton";
+
+const useRNTabs = false;
 
 export default function TabLayout() {
+  if (useRNTabs) {
+    return <OldTabs />;
+  }
+
   const { isLarge } = useMediaQuery();
+
+  const tabs = (
+    <TabList className="py-3 px-8 sm:justify-end">
+      <TabTrigger name="index" href="/" asChild style={styles.tabTrigger}>
+        <TabButton icon="museum">Home</TabButton>
+      </TabTrigger>
+      <TabTrigger
+        name="departments"
+        asChild
+        href="/departments"
+        style={styles.tabTrigger}
+      >
+        <TabButton icon="palette">Exhibits</TabButton>
+      </TabTrigger>
+      <TabTrigger name="visit" asChild href="/visit" style={styles.tabTrigger}>
+        <TabButton icon="map">Visit</TabButton>
+      </TabTrigger>
+      <TabTrigger
+        name="profile"
+        asChild
+        href="/profile"
+        style={styles.tabTrigger}
+      >
+        <TabButton icon="person">Profile</TabButton>
+      </TabTrigger>
+    </TabList>
+  );
+
   return (
-    <Tabs
+    <Tabs style={styles.root}>
+      {isLarge && tabs}
+      <View className="flex-1">
+        <TabSlot />
+      </View>
+      {!isLarge && tabs}
+    </Tabs>
+  );
+}
+
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+  },
+  behaviorRoot: {
+    flexDirection: "row",
+  },
+  tabList: {
+    backgroundColor: "#FFFFFF",
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+  },
+  tabTrigger: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    flexDirection: "column",
+    gap: 5,
+    padding: 10,
+  },
+});
+
+function OldTabs() {
+  return (
+    <RNTabs
       screenOptions={{
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
         headerShown: false,
         lazy: false,
-        tabBarStyle: {
-          display: isLarge ? "none" : "flex",
-        },
       }}
     >
-      <Tabs.Screen
+      <RNTabs.Screen
         name="index"
         options={{
           title: "Home",
@@ -29,23 +95,9 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => (
             <TabBarIcon type="MaterialIcons" name="museum" color={color} />
           ),
-          headerRight: () => (
-            <Link className="sm:hidden" href="/visit" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={customColors.tint}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
         }}
       />
-      <Tabs.Screen
+      <RNTabs.Screen
         name="departments"
         options={{
           title: "Exhibits",
@@ -54,7 +106,7 @@ export default function TabLayout() {
           ),
         }}
       />
-      <Tabs.Screen
+      <RNTabs.Screen
         name="visit"
         options={{
           title: "Visit",
@@ -63,7 +115,7 @@ export default function TabLayout() {
           ),
         }}
       />
-      <Tabs.Screen
+      <RNTabs.Screen
         name="profile"
         options={{
           title: "Profile",
@@ -72,6 +124,6 @@ export default function TabLayout() {
           ),
         }}
       />
-    </Tabs>
+    </RNTabs>
   );
 }
