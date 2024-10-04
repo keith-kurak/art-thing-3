@@ -14,7 +14,7 @@ export default function TabLayout() {
       screenOptions={{
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, true),
+        headerShown: false,
         lazy: false,
         tabBarStyle: {
           display: isLarge ? "none" : "flex",
@@ -46,7 +46,16 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="departments"
+        options={{
+          title: "Departments",
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon type="MaterialIcons" name="museum" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="favorites"
         options={{
           title: "Favorites",
           tabBarIcon: ({ color }) => (

@@ -9,6 +9,8 @@ export default function TabOneScreen() {
 
   const { isLarge } = useMediaQuery();
 
+  console.log(query.data)
+
   return (
     <View className="flex-1">
       <FlatList<{ department: string; imageUrl: string }>
@@ -18,7 +20,7 @@ export default function TabOneScreen() {
         contentContainerClassName="mb-safe"
         keyExtractor={(item) => item.department}
         renderItem={({ item }) => (
-          <Link asChild href={`/departments/${item.department}/`}>
+          <Link asChild href={`./departments/${item.department}`}>
             <Pressable className="sm:flex-1">
               <Image
                 className="h-24 w-full sm:h-56"

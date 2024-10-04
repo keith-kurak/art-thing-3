@@ -18,7 +18,7 @@ class Database {
     const favs = (await storage.getItem("favs")) || {};
     return keys(favs).filter(favsKey => favs[favsKey]).map((id) => ({
       id,
-      image: artwork.data.find((item: any) => item.id == id).images.web.url,
+      image: artwork.data.find((item: any) => item.id == id)?.images?.web?.url,
     }));
   }
 

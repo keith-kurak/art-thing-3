@@ -1,21 +1,14 @@
-import { ExpoRequest, ExpoResponse } from "expo-router/server";
 import { Database } from '@/data/api/database';
 
-export async function GET(request: ExpoRequest) {
-  // read the query string
-  const params = request.expoUrl.searchParams;
-  const id = params.get("id")!;
+export async function GET(request : Request, { id }: Record<string, string>) {
   // read the favorites status from our database
   const database = new Database();
   const favStatus = await database.getFavoriteStatus(id);
   // make a json response
-  return ExpoResponse.json(favStatus);
+  return Response.json(favStatus);
 }
 
-export async function POST(request: ExpoRequest) {
-  // read the query string for ID
-  const params = request.expoUrl.searchParams;
-  const id = params.get("id")!;
+export async function POST(request : Request, { id }: Record<string, string>) {
   // read the body for the payload
   const body = await request.json();
   const status = body.status;
@@ -23,5 +16,5 @@ export async function POST(request: ExpoRequest) {
   const database = new Database();
   await database.setFavoriteStatus(id, status);
   // make a json response
-  return ExpoResponse.json(status);
+  return Response.json(status);
 }
