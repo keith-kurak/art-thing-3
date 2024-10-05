@@ -19,6 +19,7 @@ export default function TabTwoScreen() {
     <View className="flex-1 bg-shade-1">
       <FlatList
         data={favs}
+        contentContainerClassName="mb-safe lg:w-3/4 lg:self-center"
         ListHeaderComponent={
           <View>
             <View className="py-4 px-4">
@@ -35,13 +36,13 @@ export default function TabTwoScreen() {
                 </View>
               </View>
             </View>
-            <Text className="text-xl px-4 py-2 font-semibold bg-shade-2">
+            <Text className="text-xl px-4 py-2 font-semibold bg-shade-2 sm:bg-transparent">
               Favorites
             </Text>
           </View>
         }
         renderItem={({ item }) => (
-          <View style={styles.imageContainerStyle}>
+          <View className="flex-1 flex-col m-1 sm:m-4">
             <Link asChild href={`/works/${item.id}/` as Href}>
               <TouchableOpacity
                 key={item.id}
@@ -49,7 +50,7 @@ export default function TabTwoScreen() {
                 onPress={() => {}}
               >
                 <Image
-                  style={styles.imageStyle}
+                  className="h-24 w-full sm:h-56"
                   source={{
                     uri: item.image,
                   }}
@@ -77,11 +78,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "white",
     backgroundColor: "green",
-  },
-  imageContainerStyle: {
-    flex: 1,
-    flexDirection: "column",
-    margin: 1,
   },
   imageStyle: {
     height: 120,

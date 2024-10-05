@@ -11,15 +11,15 @@ export default function TabOneScreen() {
 
   return (
     <View className="flex-1">
-      <FlatList<{ department: string; imageUrl: string }>
+      <FlatList<{ department: string; imageUrl: string } >
         key={isLarge ? "large" : "small"}
         numColumns={isLarge ? 2 : 1}
         data={query.data}
-        contentContainerClassName="mb-safe"
+        contentContainerClassName="mb-safe lg:w-3/4 lg:self-center"
         keyExtractor={(item) => item.department}
         renderItem={({ item }) => (
           <Link asChild href={`./departments/${item.department}`}>
-            <Pressable className="sm:flex-1">
+            <Pressable className="sm:flex-1 sm:m-4">
               <Image
                 className="h-24 w-full sm:h-56"
                 source={{

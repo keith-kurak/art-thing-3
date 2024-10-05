@@ -9,6 +9,7 @@ import customColors from "@/constants/colors";
 import { TabBarIcon } from "@/components/TabBarIcon";
 import { useMediaQuery } from "@/constants/useMediaQuery";
 import { TabButton } from "@/lib/components/TabButton";
+import { MaterialIcons } from "@expo/vector-icons";
 
 const useRNTabs = false;
 
@@ -47,13 +48,21 @@ export default function TabLayout() {
   );
 
   return (
-    <Tabs style={styles.root}>
-      {isLarge && tabs}
-      <View className="flex-1">
-        <TabSlot />
-      </View>
-      {!isLarge && tabs}
-    </Tabs>
+    <View className="flex-1">
+      <Tabs className="flex-1">
+        {isLarge && tabs}
+        <View className="flex-1">
+          <TabSlot />
+        </View>
+        {!isLarge && tabs}
+      </Tabs>
+      {isLarge && (
+        <View className="absolute left-2 top-4 flex-row align-middle">
+          <MaterialIcons name="museum" size={28} color={customColors.tint} />
+          <Text className="text-xl color-tint ml-2">Cleveland Museum of Art</Text>
+        </View>
+      )}
+    </View>
   );
 }
 
