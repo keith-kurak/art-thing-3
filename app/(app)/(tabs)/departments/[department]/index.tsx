@@ -20,7 +20,7 @@ export default function DepartmentScreen() {
         }}
       />
       <FlatList
-        contentContainerClassName="bg-shade-0"
+        contentContainerClassName="mb-safe bg-shade-0 lg:w-3/4 lg:self-center"
         contentContainerStyle={{ paddingBottom: insets.bottom }}
         data={query.data}
         keyExtractor={(item: any) => item.id}
