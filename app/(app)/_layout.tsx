@@ -1,6 +1,6 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from "expo-font";
-import { Stack, Link } from "expo-router";
+import { Stack, Link, Redirect } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { View, FlatList, ScrollView, Pressable, Platform } from "react-native";
@@ -12,15 +12,13 @@ export {
   ErrorBoundary,
 } from "expo-router";
 
-export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: "(tabs)",
-};
-
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 // SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
+  if (true) {
+    return <Redirect href="/sign-in" />
+  }
   return <RootLayoutNav />;
 }
 

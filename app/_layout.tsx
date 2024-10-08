@@ -1,8 +1,6 @@
-import { useEffect } from 'react';
 import { FlatList, ScrollView } from 'react-native';
 import { Image } from "expo-image";
-import { Slot, Redirect } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
+import { Slot } from 'expo-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { cssInterop, remapProps } from "nativewind";
 import "@/global.css";

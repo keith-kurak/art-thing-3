@@ -1,5 +1,5 @@
 import { View, Text, FlatList, Pressable } from "react-native";
-import { Stack, Link, useLocalSearchParams } from "expo-router";
+import { Stack, Link, useLocalSearchParams, Href } from "expo-router";
 import { Image } from "expo-image";
 import { useWorksForDepartmentQuery } from "@/data/hooks/useWorksForDepartmentQuery";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -25,7 +25,7 @@ export default function DepartmentScreen() {
         data={query.data}
         keyExtractor={(item: any) => item.id}
         renderItem={({ item }) => (
-          <Link asChild href={`/works/${item.id}/`}>
+          <Link asChild href={`/works/${item.id}/` as Href}>
             <Pressable>
               <View className="flex-row bg-shade-1">
                 <View className="flex-1 justify-start">
