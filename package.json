@@ -10,7 +10,7 @@
     "web": "expo start --web",
     "test": "jest --watchAll",
     "strip-unused-fields-from-api-data": "node ./data/api/strip_fields.js",
-    "postinstall": "patch-package"
+    "postinstall": "npx patch-package"
   },
   "jest": {
     "preset": "jest-expo"
@@ -34,6 +34,7 @@
     "expo-system-ui": "~3.0.7",
     "expo-updates": "~0.25.26",
     "expo-web-browser": "~13.0.3",
+    "jotai": "^2.10.0",
     "jsonfile": "^6.1.0",
     "lodash": "^4.17.21",
     "nativewind": "^4.1.10",

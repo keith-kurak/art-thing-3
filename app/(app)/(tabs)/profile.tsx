@@ -4,16 +4,20 @@ import {
   FlatList,
   View,
   Text,
+  Pressable,
 } from "react-native";
 import { Image } from "expo-image";
 import { Href, Link } from "expo-router";
 import { useFavsQuery } from "@/data/hooks/useFavsQuery";
 import { LoadingShade } from "@/components/LoadingShade";
+import { useAuth } from "@/data/hooks/useAuth";
 
 export default function TabTwoScreen() {
   const favsQuery = useFavsQuery();
 
   const favs = favsQuery.data;
+
+  const { logout } = useAuth();
 
   return (
     <View className="flex-1 bg-shade-1">
@@ -28,12 +32,21 @@ export default function TabTwoScreen() {
                   className="h-24 w-24 rounded-full"
                   source={require("@/assets/images/profile.png")}
                 />
-                <View>
-                  <Text className="text-4xl font-semibold text-center">
+                <View className="flex-1">
+                  <Text className="text-4xl font-semibold">
                     Your Name
                   </Text>
                   <Text className="italic">Member since 2023/03/14</Text>
                 </View>
+                <Pressable
+                  onPress={() => {
+                    logout();
+                  }}
+                >
+                  <View className="py-4 px-8 bg-shade-2">
+                    <Text>Logout</Text>
+                  </View>
+                </Pressable>
               </View>
             </View>
             <Text className="text-xl px-4 py-2 font-semibold bg-shade-2 sm:bg-transparent">

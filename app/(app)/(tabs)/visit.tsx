@@ -52,13 +52,6 @@ export default function VisitScreen() {
             contentFit="contain"
           />
         </View>
-        <View className="row-y-2 items-center my-10 mx-10">
-          <Text className="text-l font-bold">Version</Text>
-          <Text className="text-l">
-            {Application.nativeApplicationVersion}-
-            {Application.nativeBuildVersion}
-          </Text>
-        </View>
       </ScrollView>
       {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />

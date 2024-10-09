@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { View, FlatList, ScrollView, Pressable, Platform } from "react-native";
 import { TabBarIcon } from "@/components/TabBarIcon";
 import React from "react";
+import { useAuth } from "@/data/hooks/useAuth";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -16,7 +17,9 @@ export {
 // SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  if (true) {
+  const { authToken } = useAuth();
+
+  if (!authToken) {
     return <Redirect href="/sign-in" />
   }
   return <RootLayoutNav />;
