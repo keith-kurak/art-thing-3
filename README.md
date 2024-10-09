@@ -47,3 +47,50 @@ The same data is also provided in a Github repo (https://github.com/ClevelandMus
 [LinkedIn](https://www.linkedin.com/in/keith-kurak/)
 [Discord](https://chat.expo.dev)
 
+## Errata
+
+### Caveat
+Not sure how bad it is that I'm going after Router canary to get headless tabs but otherwise using SDK 51 (should be moot soon)
+
+### Headless navigators
+
+#### I couldn't get ScrollViews in tabs to scroll without this patch (content was just expanding past screen bounds)
+FlatList worked, tho
+
+#### It seems like I can't encapsulate anything under `Tabs` in components.
+I get `Couldn't find any screens for the navigator. Have you defined any screens as its children?`.
+
+So my responsive styling looks pretty clumsy, though there's probably a more nativewind way I could do this
+
+#### Remind me how I can use the tab triggers (I think) to do double-tap to scroll up?
+
+#### Or, how could I return to index on moving away from departments? (very optional)
+
+### Shared routes
+I think as-is, works route is probably OK, but if I wanted to make it part of a nested stack in each tab, how would I do that?
+
+### Back button behavior
+Home -> Department => back navigation takes me back to Departments (not really wanted)
+
+But browser back takes me back to Home (more wanted)
+
+### Responsiveness
+
+What's the preferred way to access responsive styling variables imparatively? I see some refereces to hooks that I'm not sure they work in RN. Ideally, I grab a variable synced to Nativewind
+
+### Auth
+I think I'll do the full-gated auth experience for the shorter workshop. It's easy and important.
+
+But I'd like to understand the partially-gated auth experience in your example
+
+My assumption:
+- Use a top-level transparent modal
+- Add redirects on invalid routes (e.g., Profile in my case)
+- Otherwise, use conditionals based on auth status as needed.
+
+### Etc.
+- Feels like I'm having to cast as `Href` everywhere, not sure why
+- How to address `works/[id]` in _layout (vs in screen)
+
+### Totally random things
+- I don't get why the tabs are allowed to be groups here: https://docs.expo.dev/router/advanced/shared-routes/ 
