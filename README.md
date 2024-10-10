@@ -57,20 +57,41 @@ Not sure how bad it is that I'm going after Router canary to get headless tabs b
 #### I couldn't get ScrollViews in tabs to scroll without this patch (content was just expanding past screen bounds)
 FlatList worked, tho
 
+- headless are using flexbox to position vs absolute
+
 #### It seems like I can't encapsulate anything under `Tabs` in components.
 I get `Couldn't find any screens for the navigator. Have you defined any screens as its children?`.
+
+- children of a tablist need to be tab triggers
+error idea: "tablist has unknown elements"
+- tabs needs a tablist, but tabslot can go anywhere
+- `TabList` supports `asChild` to do intermediate styling between tablist and buttons (one wrapper component)
+  - e.g., make tablist scrollable
+- display:none, roll your own tabbar
+- TabTrigger without the href - put it anywhere, as long as the name matches
+- reset for departments
+
+Extra stuff:
+- tab triggers can go to nested / non-index screens
+- e.g., individual user tabs
 
 So my responsive styling looks pretty clumsy, though there's probably a more nativewind way I could do this
 
 #### Remind me how I can use the tab triggers (I think) to do double-tap to scroll up?
+-- double tap is a default stack behavior in React Nav (but not on web)
 
 #### Or, how could I return to index on moving away from departments? (very optional)
 
 ### Shared routes
 I think as-is, works route is probably OK, but if I wanted to make it part of a nested stack in each tab, how would I do that?
 
+- initial navigation vs navigating to it (bug on initial navigation)
+
 ### Back button behavior
 Home -> Department => back navigation takes me back to Departments (not really wanted)
+- need initial route name
+- withAnchor: https://github.com/expo/expo/pull/31763 
+- may be in tab triggers
 
 But browser back takes me back to Home (more wanted)
 
@@ -87,6 +108,9 @@ My assumption:
 - Use a top-level transparent modal
 - Add redirects on invalid routes (e.g., Profile in my case)
 - Otherwise, use conditionals based on auth status as needed.
+
+- trigger is decoupled from button - removing the trigger removes the entire screen
+- make root a stack, use presentation: transparentModal
 
 ### Etc.
 - Feels like I'm having to cast as `Href` everywhere, not sure why

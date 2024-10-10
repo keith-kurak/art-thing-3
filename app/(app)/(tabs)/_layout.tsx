@@ -26,6 +26,7 @@ export default function TabLayout() {
         <TabButton icon="museum">Home</TabButton>
       </TabTrigger>
       <TabTrigger
+        reset="always"
         name="departments"
         asChild
         href="/departments"

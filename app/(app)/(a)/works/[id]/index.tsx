@@ -37,14 +37,6 @@ export default function WorkScreen() {
   return (
     <View className="flex-1 bg-opacity-50 bg-black justify-center">
       <View className=" bg-shade-1 flex-1 lg:flex-none sm:my-20 sm:w-3/4 sm:self-center">
-        <Stack.Screen
-          options={{
-            title: work?.title || "Loading...",
-            presentation: "transparentModal",
-            animation: "fade",
-            headerShown: false,
-          }}
-        />
         <ScrollView
           contentContainerStyle={{ paddingBottom: insets.bottom }}
           contentContainerClassName="bg-shade-1"
@@ -61,7 +53,7 @@ export default function WorkScreen() {
               </Pressable>
             </View>
             <Text className="flex-1 font-semibold text-3xl px-4 py-2">
-              {work?.title}
+              {work?.title + "top level"}
             </Text>
             <View className="justify-center px-4">
               <Pressable
