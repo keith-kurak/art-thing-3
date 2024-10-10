@@ -112,9 +112,16 @@ My assumption:
 - trigger is decoupled from button - removing the trigger removes the entire screen
 - make root a stack, use presentation: transparentModal
 
+another way:
+- tab has a trigger for works, no button - will go to that tab as a full screen, otherwise as a modal in full screen
+
 ### Etc.
 - Feels like I'm having to cast as `Href` everywhere, not sure why
 - How to address `works/[id]` in _layout (vs in screen)
 
 ### Totally random things
 - I don't get why the tabs are allowed to be groups here: https://docs.expo.dev/router/advanced/shared-routes/ 
+
+## Talking points
+ - why router doesn't do colocation
+   - no one place to put files with these multiple entry points
