@@ -19,7 +19,7 @@ export default function WhatsNewScreen() {
             className="px-4 py-2 gap-y-2 sm:basis-1/2"
             key={department.department}
           >
-            <Link asChild href={`./departments/${department.department}`}>
+            <Link asChild href={`/departments/${department.department}`}>
               <Pressable>
                 <View className="flex-row items-center gap-x-2">
                   <Text className="text-l">{department.department}</Text>
