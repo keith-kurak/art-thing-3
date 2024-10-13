@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { StatusBar } from "expo-status-bar";
 import {
   Platform,
   ScrollView,
@@ -53,8 +52,6 @@ export default function VisitScreen() {
           />
         </View>
       </ScrollView>
-      {/* Use a light status bar on iOS to account for the black space above the modal */}
-      <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
     </View>
   );
 }

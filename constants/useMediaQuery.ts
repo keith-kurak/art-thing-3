@@ -1,8 +1,15 @@
 import { useWindowDimensions } from 'react-native';
+import resolveConfig from 'tailwindcss/resolveConfig'
+import tailwindConfig from '../tailwind.config.js'
+
+const fullConfig = resolveConfig(tailwindConfig)
 
 export function useMediaQuery() {
-  // TODO: Use tailwind's actual breakpoints: https://stackoverflow.com/questions/59982018/how-do-i-get-tailwinds-active-breakpoint-in-javascript
-  // We didn't change defaults and only need one size in a few places, so this will work for now.
   const { width } = useWindowDimensions();
-  return { isLarge: width >= 640 };
+  return { 
+    isSm: width >= parseInt(fullConfig.theme.screens.sm, 10), 
+    isMd: width >= parseInt(fullConfig.theme.screens.md, 10), 
+    isLg: width >= parseInt(fullConfig.theme.screens.lg, 10), 
+    isXl: width >= parseInt(fullConfig.theme.screens.xl, 10) 
+  };
 }

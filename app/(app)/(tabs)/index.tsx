@@ -8,7 +8,7 @@ export default function WhatsNewScreen() {
   const query = useRandomWorksQuery();
 
   return (
-    <ScrollView contentContainerClassName="mb-safe lg:w-3/4 lg:self-center">
+    <ScrollView contentContainerClassName="m-safe lg:w-3/4 lg:self-center">
       <View className="gap-y-2 px-4 py-4">
         <Text className="text-4xl font-semibold">Welcome back!</Text>
         <Text>See what's new.</Text>

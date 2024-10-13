@@ -18,7 +18,7 @@ export default function TabLayout() {
     return <OldTabs />;
   }
 
-  const { isLarge } = useMediaQuery();
+  const { isSm } = useMediaQuery();
 
   const tabs = (
     <TabList className="py-3 px-8 sm:justify-end">
@@ -50,13 +50,13 @@ export default function TabLayout() {
   return (
     <View className="flex-1">
       <Tabs className="flex-1">
-        {isLarge && tabs}
+        {isSm && tabs}
         <View className="flex-1">
           <TabSlot />
         </View>
-        {!isLarge && tabs}
+        {!isSm && tabs}
       </Tabs>
-      {isLarge && (
+      {isSm && (
         <View className="absolute left-2 top-4 flex-row align-middle">
           <MaterialIcons name="museum" size={28} color={customColors.tint} />
           <Text className="text-xl color-tint ml-2">Cleveland Museum of Art</Text>

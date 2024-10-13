@@ -7,15 +7,15 @@ import { useMediaQuery } from '@/constants/useMediaQuery';
 export default function TabOneScreen() {
   const query = useDepartmentsQuery();
 
-  const { isLarge } = useMediaQuery();
+  const { isSm } = useMediaQuery();
 
   return (
     <View className="flex-1">
       <FlatList<{ department: string; imageUrl: string } >
-        key={isLarge ? "large" : "small"}
-        numColumns={isLarge ? 2 : 1}
+        key={isSm ? "large" : "small"}
+        numColumns={isSm ? 2 : 1}
         data={query.data}
-        contentContainerClassName="mb-safe lg:w-3/4 lg:self-center"
+        contentContainerClassName="my-safe lg:w-3/4 lg:self-center"
         keyExtractor={(item) => item.department}
         renderItem={({ item }) => (
           <Link asChild href={`/departments/${item.department}`}>

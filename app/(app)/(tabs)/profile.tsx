@@ -23,7 +23,7 @@ export default function TabTwoScreen() {
     <View className="flex-1 bg-shade-1">
       <FlatList
         data={favs}
-        contentContainerClassName="mb-safe lg:w-3/4 lg:self-center"
+        contentContainerClassName="my-safe lg:w-3/4 lg:self-center"
         ListHeaderComponent={
           <View>
             <View className="py-4 px-4">

@@ -15,7 +15,7 @@ module.exports = {
       },
     }
   },
-  plugins: [],
+  plugins: [require('nativewind/dist/tailwind/safe-area').safeArea],
   presets: [require("nativewind/preset")]
 }
 

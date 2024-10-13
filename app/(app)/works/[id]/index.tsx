@@ -36,7 +36,7 @@ export default function WorkScreen() {
 
   return (
     <View className="flex-1 bg-opacity-50 bg-black justify-center">
-      <View className=" bg-shade-1 flex-1 lg:flex-none sm:my-20 sm:w-3/4 sm:self-center">
+      <View className=" bg-shade-1 flex-1 sm:my-20 sm:w-3/4 sm:self-center">
         <Stack.Screen
           options={{
             title: work?.title || "Loading...",
@@ -79,8 +79,8 @@ export default function WorkScreen() {
               </Pressable>
             </View>
           </View>
-          <View className="flex-1 lg:flex-row">
-            <View className="py-4 px-4 h-96 w-96 lg:h-[500px] lg:w-[500px] self-center">
+          <View className="flex-1">
+            <View className="py-4 px-4 h-96 w-96 self-center">
               <Image
                 className="flex-1"
                 source={{ uri: work && work.images.web.url }}

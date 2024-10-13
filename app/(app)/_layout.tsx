@@ -1,10 +1,4 @@
-import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { useFonts } from "expo-font";
-import { Stack, Link, Redirect } from "expo-router";
-import * as SplashScreen from "expo-splash-screen";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { View, FlatList, ScrollView, Pressable, Platform } from "react-native";
-import { TabBarIcon } from "@/components/TabBarIcon";
+import { Stack, Redirect } from "expo-router";
 import React from "react";
 import { useAuth } from "@/data/hooks/useAuth";
 

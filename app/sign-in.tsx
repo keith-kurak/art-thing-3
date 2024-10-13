@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { StatusBar } from "expo-status-bar";
 import {
   Platform,
   ScrollView,
@@ -55,14 +54,14 @@ function TextField({
   autofocus?: boolean;
 }) {
   return (
-    <View className="flex-row gap-x-2">
-      <Text className="text-end w-32 text-lg">{`${label}:`}</Text>
+    <View className="gap-y-2">
+      <Text className="text-end text-md">{`${label}:`}</Text>
       <TextInput
         onChangeText={setText}
         value={text}
         secureTextEntry={isSecure}
         autoFocus={autofocus}
-        className="w-30 border-b border-gray-400 text-lg"
+        className="w-48 border-b border-gray-400 text-lg"
       />
     </View>
   );

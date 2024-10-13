@@ -12,13 +12,13 @@ export type TabButtonProps = TabTriggerSlotProps & {
 
 export const TabButton = forwardRef(
   ({ icon, children, isFocused, ...props }: TabButtonProps, ref: Ref<View>) => {
-    const { isLarge } = useMediaQuery();
+    const { isSm } = useMediaQuery();
     return (
       <Pressable
         ref={ref}
         {...props}
         style={[styles.button, isFocused ? styles.focusedBackground : undefined]}>
-        {(icon && !isLarge) ? <MaterialIcons name={icon} /> : null}
+        {(icon && !isSm) ? <MaterialIcons name={icon} /> : null}
         <Text style={[styles.tabTriggerText, isFocused ? styles.focusedText : undefined]}>
           {children}
         </Text>
