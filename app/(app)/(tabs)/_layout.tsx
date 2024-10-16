@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet, Text } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Tabs, TabList, TabSlot, TabTrigger } from "expo-router/build/ui";
-import { Link, Tabs as RNTabs } from "expo-router";
+import { Link, Tabs as RNTabs, useRouter } from "expo-router";
 import { Pressable } from "react-native";
 import { useClientOnlyValue } from "@/components/useClientOnlyValue";
 import customColors from "@/constants/colors";
@@ -19,25 +19,17 @@ export default function TabLayout() {
   }
 
   const tabs = (
-    <TabList className="py-3 px-8 sm:justify-end sm:gap-x-4">
+    <TabList className="py-2 px-8 sm:justify-end sm:gap-x-4">
       <TabTrigger name="index" href="/" asChild>
         <TabButton icon="museum">Home</TabButton>
       </TabTrigger>
-      <TabTrigger
-        name="departments"
-        asChild
-        href="/departments"
-      >
+      <TabTrigger name="departments" asChild href="/departments" reset="always">
         <TabButton icon="palette">Exhibits</TabButton>
       </TabTrigger>
       <TabTrigger name="visit" asChild href="/visit">
         <TabButton icon="map">Visit</TabButton>
       </TabTrigger>
-      <TabTrigger
-        name="profile"
-        asChild
-        href="/profile"
-      >
+      <TabTrigger name="profile" asChild href="/profile">
         <TabButton icon="person">Profile</TabButton>
       </TabTrigger>
     </TabList>
@@ -51,8 +43,8 @@ export default function TabLayout() {
         </View>
         {tabs}
       </Tabs>
-      <View className="hidden sm:inline absolute left-2 top-4 flex-row align-middle">
-        <MaterialIcons name="museum" size={28} color={customColors.tint} />
+      <View className="hidden sm:inline absolute left-2 top-0.5 flex-row items-center">
+        <MaterialIcons name="museum" size={28} className="color-tint top-1" />
         <Text className="text-xl color-tint ml-2">Cleveland Museum of Art</Text>
       </View>
     </View>

@@ -15,10 +15,24 @@ export const TabButton = forwardRef(
       <Pressable
         ref={ref}
         {...props}
-        className="justify-between items-center gap-y-2 p-4 flex-col sm:bg-shade-2"
+        className={
+          "justify-between items-center gap-y-1 px-2 flex-col" +
+          (isFocused ? " sm:bg-shade-3" : "")
+        }
       >
-        <MaterialIcons className="sm:hidden" name={icon} />
-        <Text className="sm:text-white text-md sm:text-lg">{children}</Text>
+        <MaterialIcons
+          className={"sm:hidden" + (isFocused ? " color-tint" : "")}
+          name={icon}
+          size={24}
+        />
+        <Text
+          className={
+            " text-md sm:text-lg" +
+            (isFocused ? " sm:text-white color-tint" : "")
+          }
+        >
+          {children}
+        </Text>
       </Pressable>
     );
   }
