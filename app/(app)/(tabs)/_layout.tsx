@@ -8,7 +8,7 @@ import { useClientOnlyValue } from "@/components/useClientOnlyValue";
 import customColors from "@/constants/colors";
 import { TabBarIcon } from "@/components/TabBarIcon";
 import { useMediaQuery } from "@/constants/useMediaQuery";
-import { TabButton } from "@/lib/components/TabButton";
+import { TabButton } from "@/components/TabButton";
 import { MaterialIcons } from "@expo/vector-icons";
 
 const useRNTabs = false;

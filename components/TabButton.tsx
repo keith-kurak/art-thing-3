@@ -18,7 +18,7 @@ export const TabButton = forwardRef(
         className="justify-between items-center gap-y-2 p-4 flex-col sm:bg-shade-2"
       >
         <MaterialIcons className="sm:hidden" name={icon} />
-        <Text className="sm:text-white text-md">{children}</Text>
+        <Text className="sm:text-white text-md sm:text-lg">{children}</Text>
       </Pressable>
     );
   }
