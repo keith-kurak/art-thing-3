@@ -27,8 +27,8 @@ export default function LoginScreen() {
         isSecure
       />
       <Pressable
-        onPress={() => {
-          login(email, password);
+        onPress={async () => {
+          await login(email, password);
           router.replace('/(app)');
         }}
       >

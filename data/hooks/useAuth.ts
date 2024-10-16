@@ -9,7 +9,17 @@ const useAuth = () => {
   const [authToken, setAuthToken] = useAtom(authTokenAtom);
 
   const login = async (email: string, password: string) => {
-    setAuthToken("blah");
+    const response = await fetch(`/api/sign-in`, {
+      method: "POST",
+      headers: {
+        Accept: "application.json",
+        "Content-Type": "application/json",
+      },
+      cache: "default",
+      body: JSON.stringify({ email, password }),
+    });
+    const data = await response.json();
+    await setAuthToken(data.authToken);
   };
 
   const logout = async () => {

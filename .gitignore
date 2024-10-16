@@ -40,7 +40,7 @@ yarn-error.*
 expo-env.d.ts
 # @end expo-cli
 
-storage/**
+server-storage/**
 
 /android/**
 /ios/**

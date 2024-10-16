@@ -2,15 +2,30 @@
 
 import storage from "node-persist";
 import { keys } from "lodash";
+import shortHash from "short-hash";
 
 const artwork = require("@/data/api/cma_artwork.json");
 
+const DEFAULT_USER_ID = "default";
+
 class Database {
+  userId: string;
+
+  constructor(userId?: string | undefined | null) {
+    this.userId = userId || DEFAULT_USER_ID;
+  }
+
   async initIfNeeded() {
     await storage.init({
-      dir: "./storage",
+      dir: `./server-storage/${this.userId}`,
       expiredInterval: 0,
     });
+  }
+
+  async login(email: string, password: string) {
+    await this.initIfNeeded();
+    const userId = shortHash(email+password);
+    return userId;
   }
 
   async getFavorites() {

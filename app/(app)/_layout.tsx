@@ -14,12 +14,8 @@ export default function RootLayout() {
   const { authToken } = useAuth();
 
   if (!authToken) {
-    return <Redirect href="/sign-in" />
+    return <Redirect href="/sign-in" />;
   }
-  return <RootLayoutNav />;
-}
-
-function RootLayoutNav() {
   return (
     <Stack
       screenOptions={{

@@ -8,8 +8,6 @@ const departments = uniqBy(
 );
 
 export const useDepartmentsQuery = function () {
-  const queryClient = useQueryClient();
-
   // Queries
   const query = useQuery({
     queryKey: [`departments`],
