@@ -9,13 +9,15 @@ import {
   TextInput,
 } from "react-native";
 import { useAuth } from "@/data/hooks/useAuth";
-import { router, Href } from "expo-router";
+import { useRouter } from "expo-router";
 
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  
   const { login } = useAuth();
+
+  const router = useRouter();
 
   return (
     <View className="flex-1 justify-center items-center gap-y-4 bg-shade-0">
@@ -33,7 +35,7 @@ export default function LoginScreen() {
         }}
       >
         <View className="py-4 px-8 bg-tint">
-          <Text className="text-white">Login</Text>
+          <Text className="text-white">Sign in</Text>
         </View>
       </Pressable>
     </View>

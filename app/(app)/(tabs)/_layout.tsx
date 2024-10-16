@@ -18,29 +18,25 @@ export default function TabLayout() {
     return <OldTabs />;
   }
 
-  const { isSm } = useMediaQuery();
-
   const tabs = (
-    <TabList className="py-3 px-8 sm:justify-end">
-      <TabTrigger name="index" href="/" asChild style={styles.tabTrigger}>
+    <TabList className="py-3 px-8 sm:justify-end sm:gap-x-4">
+      <TabTrigger name="index" href="/" asChild>
         <TabButton icon="museum">Home</TabButton>
       </TabTrigger>
       <TabTrigger
         name="departments"
         asChild
         href="/departments"
-        style={styles.tabTrigger}
       >
         <TabButton icon="palette">Exhibits</TabButton>
       </TabTrigger>
-      <TabTrigger name="visit" asChild href="/visit" style={styles.tabTrigger}>
+      <TabTrigger name="visit" asChild href="/visit">
         <TabButton icon="map">Visit</TabButton>
       </TabTrigger>
       <TabTrigger
         name="profile"
         asChild
         href="/profile"
-        style={styles.tabTrigger}
       >
         <TabButton icon="person">Profile</TabButton>
       </TabTrigger>
@@ -49,44 +45,19 @@ export default function TabLayout() {
 
   return (
     <View className="flex-1">
-      <Tabs className="flex-1">
-        {isSm && tabs}
+      <Tabs className="flex-1 sm:flex-col-reverse">
         <View className="flex-1">
           <TabSlot />
         </View>
-        {!isSm && tabs}
+        {tabs}
       </Tabs>
-      {isSm && (
-        <View className="absolute left-2 top-4 flex-row align-middle">
-          <MaterialIcons name="museum" size={28} color={customColors.tint} />
-          <Text className="text-xl color-tint ml-2">Cleveland Museum of Art</Text>
-        </View>
-      )}
+      <View className="hidden sm:inline absolute left-2 top-4 flex-row align-middle">
+        <MaterialIcons name="museum" size={28} color={customColors.tint} />
+        <Text className="text-xl color-tint ml-2">Cleveland Museum of Art</Text>
+      </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  },
-  behaviorRoot: {
-    flexDirection: "row",
-  },
-  tabList: {
-    backgroundColor: "#FFFFFF",
-    paddingVertical: 10,
-    paddingHorizontal: 30,
-  },
-  tabTrigger: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexDirection: "column",
-    gap: 5,
-    padding: 10,
-  },
-});
 
 function OldTabs() {
   return (
