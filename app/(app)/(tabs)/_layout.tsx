@@ -1,13 +1,9 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { View, Text } from "react-native";
 import { Tabs, TabList, TabSlot, TabTrigger } from "expo-router/build/ui";
-import { Link, Tabs as RNTabs, useRouter } from "expo-router";
-import { Pressable } from "react-native";
-import { useClientOnlyValue } from "@/components/useClientOnlyValue";
+import { Tabs as RNTabs } from "expo-router";
 import customColors from "@/constants/colors";
 import { TabBarIcon } from "@/components/TabBarIcon";
-import { useMediaQuery } from "@/constants/useMediaQuery";
 import { TabButton } from "@/components/TabButton";
 import { MaterialIcons } from "@expo/vector-icons";
 
