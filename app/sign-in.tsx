@@ -1,13 +1,5 @@
-import { useState, useEffect } from "react";
-import {
-  Platform,
-  ScrollView,
-  View,
-  Text,
-  Pressable,
-  ActivityIndicator,
-  TextInput,
-} from "react-native";
+import { useState } from "react";
+import { View, Text, Pressable, TextInput } from "react-native";
 import { useAuth } from "@/data/hooks/useAuth";
 import { useRouter } from "expo-router";
 

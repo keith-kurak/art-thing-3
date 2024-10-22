@@ -1,17 +1,5 @@
-import { useEffect } from "react";
-import {
-  Platform,
-  ScrollView,
-  View,
-  Text,
-  Pressable,
-  ActivityIndicator,
-} from "react-native";
+import { ScrollView, View, Text } from "react-native";
 import { Image } from "expo-image";
-import { Stack } from "expo-router";
-import { useMediaQuery } from "@/constants/useMediaQuery";
-import * as Application from "expo-application";
-import * as Updates from "expo-updates";
 
 export default function VisitScreen() {
   return (

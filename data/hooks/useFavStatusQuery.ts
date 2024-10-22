@@ -2,8 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import { LocalDatabase } from "@/data/api/local-database";
 import { useAuth } from "./useAuth";
 
-const data = require("../api/cma_artwork.json");
-
 export const useFavStatusQuery = function (id: string) {
   const { authToken } = useAuth();
   // Queries

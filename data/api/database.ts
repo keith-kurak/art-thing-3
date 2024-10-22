@@ -35,7 +35,7 @@ class Database {
       .filter((favsKey) => favs[favsKey])
       .map((id) => ({
         id,
-        image: artwork.data.find((item: any) => item.id == id)?.images?.web
+        image: artwork.data.find((item: any) => item.id === id)?.images?.web
           ?.url,
       }));
   }

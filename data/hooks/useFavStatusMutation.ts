@@ -2,8 +2,6 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { LocalDatabase } from "@/data/api/local-database";
 import { useAuth } from "./useAuth";
 
-const data = require("../api/cma_artwork.json");
-
 export const useFavStatusMutation = function () {
   const queryClient = useQueryClient();
   const { authToken } = useAuth();

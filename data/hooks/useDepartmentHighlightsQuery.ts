@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { uniqBy } from "lodash";
 
 const data = require("../api/cma_artwork.json");
@@ -15,8 +15,6 @@ const departmentsWithTopWorks = departments.map((department) => ({
 }));
 
 export const useDepartmentHighlightsQuery = function () {
-  const queryClient = useQueryClient();
-
   // Queries
   const query = useQuery({
     queryKey: [`departmentHighlights`],

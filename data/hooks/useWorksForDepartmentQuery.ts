@@ -1,11 +1,8 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { uniq } from "lodash";
+import { useQuery } from "@tanstack/react-query";
 
 const data = require("../api/cma_artwork.json");
 
 export const useWorksForDepartmentQuery = function (department: string) {
-  const queryClient = useQueryClient();
-
   // Queries
   const query = useQuery({
     queryKey: [`departments:${department}`],

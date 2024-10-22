@@ -5,4 +5,13 @@ module.exports = {
   rules: {
     "prettier/prettier": "error",
   },
+  // will be fixed by https://github.com/expo/expo/pull/32203
+  overrides: [
+    {
+      files: ["metro.config.js"],
+      env: {
+        node: true,
+      },
+    },
+  ],
 };
