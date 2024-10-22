@@ -24,17 +24,20 @@ class Database {
 
   async login(email: string, password: string) {
     await this.initIfNeeded();
-    const userId = shortHash(email+password);
+    const userId = shortHash(email + password);
     return userId;
   }
 
   async getFavorites() {
     await this.initIfNeeded();
     const favs = (await storage.getItem("favs")) || {};
-    return keys(favs).filter(favsKey => favs[favsKey]).map((id) => ({
-      id,
-      image: artwork.data.find((item: any) => item.id == id)?.images?.web?.url,
-    }));
+    return keys(favs)
+      .filter((favsKey) => favs[favsKey])
+      .map((id) => ({
+        id,
+        image: artwork.data.find((item: any) => String(item.id) === id)?.images
+          ?.web?.url,
+      }));
   }
 
   async getFavoriteStatus(id: string) {
@@ -51,4 +54,4 @@ class Database {
   }
 }
 
-export { Database }
+export { Database };

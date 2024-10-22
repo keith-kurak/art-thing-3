@@ -1,22 +1,13 @@
-import { useEffect } from 'react';
-import {
-  Platform,
-  ScrollView,
-  View,
-  Text,
-  Pressable,
-  ActivityIndicator,
-} from "react-native";
+import { ScrollView, View, Text } from "react-native";
 import { Image } from "expo-image";
-import { Stack } from "expo-router";
-import { useMediaQuery } from "@/constants/useMediaQuery";
-import * as Application from "expo-application";
-import * as Updates from "expo-updates";
 
 export default function VisitScreen() {
   return (
     <View className="flex-1">
-      <ScrollView className="bg-shade-1" contentContainerClassName="mb-safe sm:w-3/4 sm:self-center">
+      <ScrollView
+        className="bg-shade-1"
+        contentContainerClassName="mb-safe sm:w-3/4 sm:self-center"
+      >
         <View className="row-y-2 px-4 py-2">
           <Text className="text-4xl font-semibold text-center">
             The Cleveland Museum of Art

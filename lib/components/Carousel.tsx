@@ -44,7 +44,9 @@ export default function Carousel({ title, data, ...props }: CarouselProps) {
           ref={scrollContainer}
           horizontal
           showsHorizontalScrollIndicator={false}
-          keyExtractor={(item, index) => item.department + item.title + index.toString()}
+          keyExtractor={(item, index) =>
+            item.department + item.title + index.toString()
+          }
           onViewableItemsChanged={onViewableItemsChanged}
           contentContainerClassName="gap-2 pl-2"
           {...props}

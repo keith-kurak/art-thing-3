@@ -1,5 +1,5 @@
-const jsonfile = require('jsonfile');
-const _ = require('lodash');
+const jsonfile = require("jsonfile");
+const _ = require("lodash");
 
 const limitPerDepartment = 20;
 
@@ -11,8 +11,8 @@ artworkResponse.data.forEach((artwork) => {
   artwork.provenance = [];
   artwork.citations = [];
   artwork.alternate_images = [];
-  artwork.images  = { web: artwork.images.web };
-  artwork.tombstore = undefined,
+  artwork.images = { web: artwork.images.web };
+  artwork.tombstore = undefined;
   artwork.external_resources = undefined;
   artwork.inscriptions = undefined;
   artwork.dimensions = undefined;
@@ -28,11 +28,15 @@ artworkResponse.data.forEach((artwork) => {
 });
 
 if (limitPerDepartment) {
-  artworkByDepartment = _.groupBy(artworkResponse.data, 'department');
+  let artworkByDepartment = _.groupBy(artworkResponse.data, "department");
   artworkResponse.data = [];
   for (const department in artworkByDepartment) {
-    artworkResponse.data = artworkResponse.data.concat(artworkByDepartment[department].slice(0, limitPerDepartment));
+    artworkResponse.data = artworkResponse.data.concat(
+      artworkByDepartment[department].slice(0, limitPerDepartment),
+    );
   }
 }
 
-jsonfile.writeFileSync("./data/api/cma_artwork.json", artworkResponse, { spaces: 2 });
+jsonfile.writeFileSync("./data/api/cma_artwork.json", artworkResponse, {
+  spaces: 2,
+});

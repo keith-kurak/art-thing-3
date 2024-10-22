@@ -1,20 +1,12 @@
-import { useState, useEffect } from "react";
-import {
-  Platform,
-  ScrollView,
-  View,
-  Text,
-  Pressable,
-  ActivityIndicator,
-  TextInput,
-} from "react-native";
+import { useState } from "react";
+import { View, Text, Pressable, TextInput } from "react-native";
 import { useAuth } from "@/data/hooks/useAuth";
 import { useRouter } from "expo-router";
 
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+
   const { login } = useAuth();
 
   const router = useRouter();
@@ -31,7 +23,7 @@ export default function LoginScreen() {
       <Pressable
         onPress={async () => {
           await login(email, password);
-          router.replace('/(app)');
+          router.replace("/(app)");
         }}
       >
         <View className="py-4 px-8 bg-tint">

@@ -1,6 +1,6 @@
 /* for bypassing API Routes and just saving data inside your app's local storage */
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { keys } from "lodash";
 
 const storage = {
@@ -18,10 +18,13 @@ const artwork = require("@/data/api/cma_artwork.json");
 class LocalDatabase {
   async getFavorites() {
     const favs = (await storage.getItem("favs")) || {};
-    return keys(favs).filter(favsKey => favs[favsKey]).map((id) => ({
-      id,
-      image: artwork.data.find((item: any) => item.id == id).images.web.url,
-    }));
+    return keys(favs)
+      .filter((favsKey) => favs[favsKey])
+      .map((id) => ({
+        id,
+        image: artwork.data.find((item: any) => String(item.id) === id).images
+          .web.url,
+      }));
   }
 
   async getFavoriteStatus(id: string) {
@@ -36,4 +39,4 @@ class LocalDatabase {
   }
 }
 
-export { LocalDatabase }
+export { LocalDatabase };

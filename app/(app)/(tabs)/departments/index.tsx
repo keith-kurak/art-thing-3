@@ -2,7 +2,7 @@ import { View, Text, FlatList, Pressable } from "react-native";
 import { Link } from "expo-router";
 import { Image } from "expo-image";
 import { useDepartmentsQuery } from "@/data/hooks/useDepartmentsQuery";
-import { useMediaQuery } from '@/constants/useMediaQuery';
+import { useMediaQuery } from "@/constants/useMediaQuery";
 
 export default function TabOneScreen() {
   const query = useDepartmentsQuery();
@@ -11,7 +11,7 @@ export default function TabOneScreen() {
 
   return (
     <View className="flex-1">
-      <FlatList<{ department: string; imageUrl: string } >
+      <FlatList<{ department: string; imageUrl: string }>
         key={isSm ? "large" : "small"}
         numColumns={isSm ? 2 : 1}
         data={query.data}

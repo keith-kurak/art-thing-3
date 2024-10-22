@@ -1,10 +1,4 @@
-import {
-  View,
-  Text,
-  ScrollView,
-  Pressable,
-  useWindowDimensions,
-} from "react-native";
+import { View, Text, ScrollView, Pressable } from "react-native";
 import { router, Stack, useLocalSearchParams } from "expo-router";
 import { Image } from "expo-image";
 import Icon from "@expo/vector-icons/MaterialIcons";

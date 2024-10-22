@@ -9,12 +9,12 @@ export {
 
 export const unstable_settings = {
   initialRouteName: "(tabs)",
-}
+};
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 // SplashScreen.preventAutoHideAsync();
 
-export default function layout() {
+export default function Layout() {
   const { authToken } = useAuth();
 
   if (!authToken) {

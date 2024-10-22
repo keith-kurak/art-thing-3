@@ -12,7 +12,14 @@ export function TabBarIcon(props: {
 }) {
   const IconComponent =
     props.type === "MaterialIcons" ? MaterialIcons : FontAwesome;
-    const myColor = props.color || "black";
+  const myColor = props.color || "black";
   // @ts-ignore
-  return <IconComponent size={28} style={{ marginBottom: -3 }} {...props} color={myColor} />;
+  return (
+    <IconComponent
+      size={28}
+      style={{ marginBottom: -3 }}
+      {...props}
+      color={myColor}
+    />
+  );
 }
