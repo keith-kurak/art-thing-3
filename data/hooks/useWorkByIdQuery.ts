@@ -7,7 +7,7 @@ export const useWorkByIdQuery = function (id: string) {
   const query = useQuery({
     queryKey: [`works:${id}`],
     queryFn: async () => {
-      return data.data.find((item: any) => item.id === id);
+      return data.data.find((item: any) => String(item.id) === id)
     },
   });
 

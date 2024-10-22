@@ -22,7 +22,8 @@ class LocalDatabase {
       .filter((favsKey) => favs[favsKey])
       .map((id) => ({
         id,
-        image: artwork.data.find((item: any) => item.id === id).images.web.url,
+        image: artwork.data.find((item: any) => String(item.id) === id).images
+          .web.url,
       }));
   }
 
