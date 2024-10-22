@@ -1,8 +1,8 @@
-import { Database } from '@/data/api/database';
+import { Database } from "@/data/api/database";
 
-export async function POST(request : Request) {
+export async function POST(request: Request) {
   const body = await request.json();
   const database = new Database(null);
   const authToken = await database.login(body.email, body.password);
-  return Response.json({ authToken});
+  return Response.json({ authToken });
 }

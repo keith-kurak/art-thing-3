@@ -35,5 +35,5 @@ export const TabButton = forwardRef(
         </Text>
       </Pressable>
     );
-  }
+  },
 );

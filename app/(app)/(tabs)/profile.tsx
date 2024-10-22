@@ -33,9 +33,7 @@ export default function TabTwoScreen() {
                   source={require("@/assets/images/profile.png")}
                 />
                 <View className="flex-1">
-                  <Text className="text-4xl font-semibold">
-                    Your Name
-                  </Text>
+                  <Text className="text-4xl font-semibold">Your Name</Text>
                   <Text className="italic">Member since 2023/03/14</Text>
                 </View>
                 <Pressable

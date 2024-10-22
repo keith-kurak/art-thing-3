@@ -1,4 +1,3 @@
-
 export default {
-  tint: "#484EEC"
+  tint: "#484EEC",
 };

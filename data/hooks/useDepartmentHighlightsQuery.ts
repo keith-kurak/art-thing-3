@@ -4,12 +4,14 @@ import { uniqBy } from "lodash";
 const data = require("../api/cma_artwork.json");
 const departments = uniqBy(
   data.data,
-  (item: { department: string }) => item.department
+  (item: { department: string }) => item.department,
 );
 
 const departmentsWithTopWorks = departments.map((department) => ({
   department: department.department,
-  works: data.data.filter((work: any) => department.department === work.department).slice(0, 8)
+  works: data.data
+    .filter((work: any) => department.department === work.department)
+    .slice(0, 8),
 }));
 
 export const useDepartmentHighlightsQuery = function () {

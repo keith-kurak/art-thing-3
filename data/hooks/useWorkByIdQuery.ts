@@ -2,7 +2,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 const data = require("../api/cma_artwork.json");
 
-export const useWorkByIdQuery = function(id: string) {
+export const useWorkByIdQuery = function (id: string) {
   const queryClient = useQueryClient();
 
   // Queries
@@ -14,4 +14,4 @@ export const useWorkByIdQuery = function(id: string) {
   });
 
   return query;
-}
+};

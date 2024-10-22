@@ -3,7 +3,7 @@ import { uniq } from "lodash";
 
 const data = require("../api/cma_artwork.json");
 
-export const useWorksForDepartmentQuery = function(department: string) {
+export const useWorksForDepartmentQuery = function (department: string) {
   const queryClient = useQueryClient();
 
   // Queries
@@ -15,4 +15,4 @@ export const useWorksForDepartmentQuery = function(department: string) {
   });
 
   return query;
-}
+};

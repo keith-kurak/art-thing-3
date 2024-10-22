@@ -14,7 +14,7 @@ import { useRouter } from "expo-router";
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+
   const { login } = useAuth();
 
   const router = useRouter();
@@ -31,7 +31,7 @@ export default function LoginScreen() {
       <Pressable
         onPress={async () => {
           await login(email, password);
-          router.replace('/(app)');
+          router.replace("/(app)");
         }}
       >
         <View className="py-4 px-8 bg-tint">

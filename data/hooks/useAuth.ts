@@ -1,9 +1,9 @@
 import { useAtom } from "jotai";
-import { atomWithStorage, createJSONStorage } from 'jotai/utils'
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import { atomWithStorage, createJSONStorage } from "jotai/utils";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const storage = createJSONStorage(() => AsyncStorage)
-const authTokenAtom = atomWithStorage<any>('auth-token', undefined, storage)
+const storage = createJSONStorage(() => AsyncStorage);
+const authTokenAtom = atomWithStorage<any>("auth-token", undefined, storage);
 
 const useAuth = () => {
   const [authToken, setAuthToken] = useAtom(authTokenAtom);
@@ -24,9 +24,9 @@ const useAuth = () => {
 
   const logout = async () => {
     setAuthToken(undefined);
-  }
+  };
 
   return { authToken, login, logout };
-}
+};
 
-export { useAuth }
+export { useAuth };
