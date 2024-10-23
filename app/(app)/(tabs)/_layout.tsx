@@ -15,7 +15,7 @@ export default function TabLayout() {
   }
 
   const tabs = (
-    <TabList className="py-2 px-8 sm:py-6 sm:justify-end sm:gap-x-4 sm:border-b-2 sm:border-shade-2">
+    <TabList className="py-3 sm:p-2 px-6 sm:px-8 sm:py-6 sm:justify-end sm:gap-x-4 sm:border-b-2 sm:border-shade-2 absolute sm:relative bottom-safe-offset-2 sm:bottom-safe-offset-0 right-0 left-0 bg-white rounded-full sm:rounded-none mx-2 sm:mx-0">
       <TabTrigger name="index" href="/" asChild>
         <TabButton icon="museum">Home</TabButton>
       </TabTrigger>
@@ -39,7 +39,7 @@ export default function TabLayout() {
         </View>
         {tabs}
       </Tabs>
-      <View className="hidden sm:inline absolute left-6 top-4 h-10 w-52">
+      <View className="hidden sm:inline absolute left-6 top-5 h-10 w-52">
         <Image
           source={require("@/assets/images/logo.svg")}
           className="w-full h-full"
