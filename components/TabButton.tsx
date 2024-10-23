@@ -19,7 +19,7 @@ export const TabButton = forwardRef(function TabButtonComponent(
       {...props}
       className={
         "justify-between items-center gap-y-1 px-2 flex-col" +
-        (isFocused ? " sm:bg-shade-3" : "")
+        (isFocused ? " sm:border-b-tint sm:border-b-2" : "")
       }
     >
       <MaterialIcons
@@ -28,9 +28,7 @@ export const TabButton = forwardRef(function TabButtonComponent(
         size={24}
       />
       <Text
-        className={
-          " text-md sm:text-lg" + (isFocused ? " sm:text-white color-tint" : "")
-        }
+        className={" text-md sm:text-lg" + (isFocused ? " xs:color-tint" : "")}
       >
         {children}
       </Text>
