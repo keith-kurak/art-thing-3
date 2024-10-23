@@ -1,11 +1,11 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import { Tabs, TabList, TabSlot, TabTrigger } from "expo-router/build/ui";
 import { Tabs as RNTabs } from "expo-router";
 import customColors from "@/constants/colors";
 import { TabBarIcon } from "@/components/TabBarIcon";
 import { TabButton } from "@/components/TabButton";
-import { MaterialIcons } from "@expo/vector-icons";
+import { Image } from "expo-image";
 
 const useRNTabs = false;
 
@@ -15,7 +15,7 @@ export default function TabLayout() {
   }
 
   const tabs = (
-    <TabList className="py-2 px-8 sm:justify-end sm:gap-x-4">
+    <TabList className="py-3 sm:p-2 px-6 sm:px-8 sm:py-6 sm:justify-end sm:gap-x-4 sm:border-b-2 sm:border-shade-2 absolute sm:relative bottom-safe-offset-2 sm:bottom-safe-offset-0 right-0 left-0 bg-white rounded-full sm:rounded-none mx-2 sm:mx-0">
       <TabTrigger name="index" href="/" asChild>
         <TabButton icon="museum">Home</TabButton>
       </TabTrigger>
@@ -39,9 +39,11 @@ export default function TabLayout() {
         </View>
         {tabs}
       </Tabs>
-      <View className="hidden sm:inline absolute left-2 top-0.5 flex-row items-center">
-        <MaterialIcons name="museum" size={28} className="color-tint top-1" />
-        <Text className="text-xl color-tint ml-2">Cleveland Museum of Art</Text>
+      <View className="hidden sm:inline absolute left-6 top-5 h-10 w-52">
+        <Image
+          source={require("@/assets/images/logo.svg")}
+          className="w-full h-full"
+        />
       </View>
     </View>
   );

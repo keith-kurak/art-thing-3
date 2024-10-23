@@ -7,8 +7,12 @@ module.exports = {
     extend: {
       colors: {
         white: "#ffffff",
-        black: "#111111",
+        black: colors.black,
         tint: colors.tint,
+        "tint-2": colors.tint2,
+        "tint-3": colors.tint3,
+        "tint-4": colors.tint4,
+        "tint-5": colors.tint5,
         "shade-0": "#ffffff",
         "shade-1": "#f5f5f5",
         "shade-2": "#CDCDCD",
