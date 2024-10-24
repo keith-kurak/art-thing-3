@@ -1,5 +1,5 @@
 import { View, Platform, Text } from "react-native";
-import { Link, useLocalSearchParams } from "expo-router";
+import { Link, Redirect, useLocalSearchParams } from "expo-router";
 import { Image } from "expo-image";
 import { useWorkByIdQuery } from "@/data/hooks/useWorkByIdQuery";
 import { LoadingShade } from "@/components/LoadingShade";
@@ -17,6 +17,11 @@ export default function WorkScreen() {
   const work = workQuery.data;
 
   const { authToken } = useAuth();
+
+  // if I do this, (tabs) doesn't render behind it and the back/ close button doesn't work, not sure why
+  /*if (authToken) {
+    return <Redirect href={`/(app)/works/${id}`} />;
+  }*/
 
   return (
     <View
