@@ -5,7 +5,7 @@ import { useMediaQuery } from "@/constants/useMediaQuery";
 
 const venueName = "The Cleveland Museum of Art";
 const venueAddress = "11150 East Boulevard, Cleveland, OH, 44106";
-const venbuePhone = "888-CMA-0033";
+const venuePhone = "888-CMA-0033";
 
 export default function VisitScreen() {
   const { bottom } = useSafeAreaInsets();
@@ -26,7 +26,7 @@ export default function VisitScreen() {
         <Pressable onPress={onOpenVenue}>
           <Text className="text-xl text-center underline">{venueAddress}</Text>
         </Pressable>
-        <Text className="text-xl text-center mb-4">888-CMA-0033</Text>
+        <Text className="text-xl text-center mb-4">{venuePhone}</Text>
       </View>
       <Text className="text-xl px-4 py-2 font-semibold bg-black text-white uppercase tracking-widest">
         Admission

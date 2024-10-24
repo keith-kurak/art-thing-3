@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, Pressable } from "react-native";
+import { View, Text, ScrollView, Pressable, Platform } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
 import { Image } from "expo-image";
 import Icon from "@expo/vector-icons/MaterialIcons";
@@ -34,6 +34,7 @@ export default function WorkScreen() {
         "bg-white sm:bg-black",
         "sm:bg-opacity-20",
         "flex-1 justify-center",
+        Platform.OS === "android" && "pt-safe",
       )}
     >
       <View className="flex-1 sm:my-20 sm:w-3/4 sm:self-center ">

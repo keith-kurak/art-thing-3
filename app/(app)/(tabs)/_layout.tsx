@@ -7,6 +7,7 @@ import { TabBarIcon } from "@/components/TabBarIcon";
 import { TabButton } from "@/components/TabButton";
 import { Image } from "expo-image";
 import classNames from "classnames";
+import colors from "@/constants/colors";
 
 const useRNTabs = false;
 
@@ -70,6 +71,7 @@ export default function TabLayout() {
 function OldTabs() {
   return (
     <RNTabs
+      sceneContainerStyle={{ backgroundColor: colors.white }}
       screenOptions={{
         headerShown: false,
         lazy: false,
