@@ -1,5 +1,6 @@
 export default {
   black: "#111111",
+  white: "#FFFFFF",
   tint: "#484EEC", // blue
   tint2: "#F3D548", // yellow
   tint3: "#773EA9", // purple

@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { View, Text, Pressable, TextInput } from "react-native";
+import { View, Text, TextInput, Platform } from "react-native";
 import { useAuth } from "@/data/hooks/useAuth";
 import { useRouter } from "expo-router";
+import { Button } from "@/components/Button";
 
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
@@ -12,24 +13,26 @@ export default function LoginScreen() {
   const router = useRouter();
 
   return (
-    <View className="flex-1 justify-center items-center gap-y-4 bg-shade-0">
-      <TextField label="Email" text={email} setText={setEmail} autofocus />
+    <View className="flex-1 justify-center items-center gap-y-6 bg-shade-0">
+      <TextField
+        label="Email"
+        text={email}
+        setText={setEmail}
+        autofocus={Platform.OS === "web"}
+      />
       <TextField
         label="Password"
         text={password}
         setText={setPassword}
         isSecure
       />
-      <Pressable
+      <Button
         onPress={async () => {
           await login(email, password);
           router.replace("/(app)");
         }}
-      >
-        <View className="py-4 px-8 bg-tint">
-          <Text className="text-white">Sign in</Text>
-        </View>
-      </Pressable>
+        label="Sign in"
+      />
     </View>
   );
 }
@@ -48,15 +51,17 @@ function TextField({
   autofocus?: boolean;
 }) {
   return (
-    <View className="gap-y-2">
-      <Text className="text-end text-md">{`${label}:`}</Text>
-      <TextInput
-        onChangeText={setText}
-        value={text}
-        secureTextEntry={isSecure}
-        autoFocus={autofocus}
-        className="w-48 border-b border-gray-400 text-lg"
-      />
+    <View className="gap-y-1">
+      <Text className="text-end text-lg">{label}</Text>
+      <View className="border border-black">
+        <TextInput
+          onChangeText={setText}
+          value={text}
+          secureTextEntry={isSecure}
+          autoFocus={autofocus}
+          className="w-72 sm:text-lg p-2 h-12"
+        />
+      </View>
     </View>
   );
 }
