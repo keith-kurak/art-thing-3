@@ -1,6 +1,7 @@
 import { Stack, Redirect } from "expo-router";
 import React from "react";
 import { useAuth } from "@/data/hooks/useAuth";
+import colors from "@/constants/colors";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -25,6 +26,7 @@ export default function Layout() {
     <Stack
       screenOptions={{
         headerBackTitleVisible: false,
+        contentStyle: { backgroundColor: colors.white },
       }}
     >
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />

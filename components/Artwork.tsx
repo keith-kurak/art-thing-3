@@ -22,7 +22,7 @@ export function Artwork({ department, randomWork }: Props) {
       <Link asChild href={`/works/${randomWork.id}`}>
         <Pressable className="flex-row sm:flex-col gap-x-2 h-48 sm:h-96">
           <Image
-            className="h-48 flex-1 sm:h-96"
+            className="h-48 flex-1 sm:h-96 bg-shade-2"
             source={{
               uri: randomWork.images.web.url,
             }}

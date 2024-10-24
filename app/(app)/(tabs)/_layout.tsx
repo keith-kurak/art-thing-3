@@ -6,6 +6,7 @@ import customColors from "@/constants/colors";
 import { TabBarIcon } from "@/components/TabBarIcon";
 import { TabButton } from "@/components/TabButton";
 import { Image } from "expo-image";
+import classnames from "classnames";
 
 const useRNTabs = false;
 
@@ -15,7 +16,19 @@ export default function TabLayout() {
   }
 
   const tabs = (
-    <TabList className="py-3 sm:p-2 px-6 sm:px-8 sm:py-6 sm:justify-end sm:gap-x-4 sm:border-b-2 sm:border-shade-2 absolute sm:relative bottom-safe-offset-2 sm:bottom-safe-offset-0 right-0 left-0 bg-white rounded-full sm:rounded-none mx-2 sm:mx-0">
+    <TabList
+      className={classnames(
+        "py-3 sm:py-6",
+        "px-6 sm:px-8",
+        "mx-2 sm:mx-0",
+        "bottom-safe-offset-2 sm:bottom-safe-offset-0",
+        "rounded-full sm:rounded-none",
+        "absolute right-0 left-0 sm:relative",
+        "shadow-sm sm:shadow-none",
+        "sm:justify-end sm:gap-x-4 sm:shadow-sm",
+        "bg-white",
+      )}
+    >
       <TabTrigger name="index" href="/" asChild>
         <TabButton icon="museum">Home</TabButton>
       </TabTrigger>
@@ -39,7 +52,12 @@ export default function TabLayout() {
         </View>
         {tabs}
       </Tabs>
-      <View className="hidden sm:inline absolute left-6 top-5 h-10 w-52">
+      <View
+        className={classnames(
+          "hidden sm:inline",
+          "absolute left-6 top-5 h-10 w-52",
+        )}
+      >
         <Image
           source={require("@/assets/images/logo.svg")}
           className="w-full h-full"
