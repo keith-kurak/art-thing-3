@@ -29,7 +29,12 @@ export default function Layout() {
         contentStyle: { backgroundColor: colors.white },
       }}
     >
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack.Screen
+        name="(tabs)"
+        options={{
+          headerShown: false,
+        }}
+      />
     </Stack>
   );
 }

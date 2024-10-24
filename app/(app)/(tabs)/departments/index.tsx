@@ -1,4 +1,4 @@
-import { Text, FlatList, Pressable } from "react-native";
+import { Text, FlatList, Pressable, View } from "react-native";
 import { Link } from "expo-router";
 import { Image } from "expo-image";
 import { useDepartmentsQuery } from "@/data/hooks/useDepartmentsQuery";
@@ -28,9 +28,11 @@ export default function TabOneScreen() {
                 uri: item.imageUrl,
               }}
             />
-            <Text className="absolute right-2 bottom-2 text-3xl text-white font-semibold text-right">
-              {item.department}
-            </Text>
+            <View className="absolute bottom-0 right-0 left-0 text-center p-4 bg-black bg-opacity-60">
+              <Text className="text-white text-center text-2xl font-bold uppercase tracking-widest">
+                {item.department}
+              </Text>
+            </View>
           </Pressable>
         </Link>
       )}

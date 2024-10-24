@@ -21,7 +21,7 @@ const randomDepartments = departmentsWithTopWorks.sort(
   () => Math.random() - 0.5,
 );
 
-export const useRandomWorksQuery = function (numWorks: number = 4) {
+export const useRandomWorksQuery = function (numWorks: number = 6) {
   // Queries
   const query = useQuery({
     queryKey: [`randomWorks`],

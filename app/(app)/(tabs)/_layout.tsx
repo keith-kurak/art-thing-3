@@ -6,7 +6,7 @@ import customColors from "@/constants/colors";
 import { TabBarIcon } from "@/components/TabBarIcon";
 import { TabButton } from "@/components/TabButton";
 import { Image } from "expo-image";
-import classnames from "classnames";
+import classNames from "classnames";
 
 const useRNTabs = false;
 
@@ -17,7 +17,7 @@ export default function TabLayout() {
 
   const tabs = (
     <TabList
-      className={classnames(
+      className={classNames(
         "py-3 sm:py-6",
         "px-6 sm:px-8",
         "mx-2 sm:mx-0",
@@ -53,7 +53,7 @@ export default function TabLayout() {
         {tabs}
       </Tabs>
       <View
-        className={classnames(
+        className={classNames(
           "hidden sm:inline",
           "absolute left-6 top-5 h-10 w-52",
         )}

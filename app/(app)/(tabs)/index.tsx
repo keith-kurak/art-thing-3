@@ -19,10 +19,12 @@ export default function WhatsNewScreen() {
       ListHeaderComponent={
         <View className="gap-y-2 px-4 py-4">
           <Text className="text-4xl font-semibold">Welcome back!</Text>
-          <Text>See what's new.</Text>
+          <Text className="font-light tracking-wider">See what's new.</Text>
         </View>
       }
-      renderItem={({ item }) => <Artwork {...item} />}
+      renderItem={({ item }) => (
+        <Artwork department={item.department} artwork={item.randomWork} />
+      )}
     />
   );
 }

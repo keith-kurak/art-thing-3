@@ -1,5 +1,6 @@
 import React from "react";
 import { Stack } from "expo-router";
+import colors from "@/constants/colors";
 
 export const unstable_settings = {
   // Ensure any route can link back to `/`
@@ -8,7 +9,7 @@ export const unstable_settings = {
 
 export default function StackLayout() {
   return (
-    <Stack>
+    <Stack screenOptions={{ contentStyle: { backgroundColor: colors.white } }}>
       <Stack.Screen
         name="index"
         options={{ title: "Departments", headerShown: false }}

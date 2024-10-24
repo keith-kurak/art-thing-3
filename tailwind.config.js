@@ -18,6 +18,11 @@ module.exports = {
         "shade-2": "#CDCDCD",
         "shade-3": "#B8B8B8",
       },
+      flex: {
+        2: "2 2 0%",
+        3: "3 3 0%",
+        4: "4 4 0%",
+      },
     },
   },
   plugins: [require("nativewind/dist/tailwind/safe-area").safeArea],

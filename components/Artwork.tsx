@@ -1,45 +1,58 @@
-import { stripTags } from "@/lib/utils";
+import classNames from "classnames";
 import { Image } from "expo-image";
 import { Link } from "expo-router";
 import { Pressable, Text, View } from "react-native";
 
 type Props = {
-  department: string;
-  randomWork: any;
+  department?: string;
+  artwork: any;
 };
 
-export function Artwork({ department, randomWork }: Props) {
+export function Artwork({ department, artwork }: Props) {
   return (
-    <View className="px-4 py-2 gap-y-2 sm:basis-1/2" key={department}>
-      <Link asChild href={`/departments/${department}`}>
-        <Pressable>
-          <View className="flex-row items-center gap-x-2">
-            <Text className="text-l">{department}</Text>
-            <View className="flex-1 h-0.5 bg-shade-2" />
-          </View>
-        </Pressable>
-      </Link>
-      <Link asChild href={`/works/${randomWork.id}`}>
+    <View
+      className={classNames("mb-4 sm:mb-0", "px-4 py-2 gap-y-2 sm:basis-1/2")}
+    >
+      {department ? (
+        <Link asChild href={`/departments/${department}`}>
+          <Pressable>
+            <View className="flex-row items-center gap-x-2">
+              <Text className="text-l uppercase font-bold tracking-widest">
+                {department}
+              </Text>
+              <View className="flex-1 h-0.5 bg-shade-2" />
+            </View>
+          </Pressable>
+        </Link>
+      ) : null}
+      <Link asChild href={`/works/${artwork.id}`}>
         <Pressable className="flex-row sm:flex-col gap-x-2 h-48 sm:h-96">
           <Image
-            className="h-48 flex-1 sm:h-96 bg-shade-2"
+            className="flex-1 sm:flex-4 sm:mb-4"
             source={{
-              uri: randomWork.images.web.url,
+              uri: artwork.images.web.url,
             }}
           />
-          <View className="flex-1">
-            <Text numberOfLines={3} className="text-xl font-semibold">
-              {randomWork.title}
+          <View
+            className={classNames(
+              "flex-1",
+              "justify-center sm:justify-normal",
+              "items-center sm:items-start",
+            )}
+          >
+            <Text
+              numberOfLines={1}
+              className={classNames(
+                "text-center sm:text-start",
+                "text-xl font-semibold mb-1",
+              )}
+            >
+              {artwork.title}
             </Text>
-            {randomWork.creators.length ? (
-              <Text numberOfLines={1} className="text-lg italic">
-                {randomWork.creators[0].description}
-              </Text>
-            ) : null}
-            <View className="flex-1 overflow-clip mt-2">
-              {randomWork.did_you_know ? (
-                <Text className="text-md">
-                  {stripTags(randomWork.did_you_know)}
+            <View className="hidden sm:inline">
+              {artwork.creators.length ? (
+                <Text numberOfLines={1} className="text-lg italic font-light">
+                  {artwork.creators[0].description}
                 </Text>
               ) : null}
             </View>
