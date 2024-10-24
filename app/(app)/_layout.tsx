@@ -37,7 +37,7 @@ export default function Layout() {
         }}
       />
       <Stack.Screen
-        name="works/[id]/index"
+        name="(direct)/works/[id]/index"
         options={{
           ...Platform.select({
             web: {
