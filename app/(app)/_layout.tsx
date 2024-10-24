@@ -36,21 +36,6 @@ export default function Layout() {
           contentStyle: { backgroundColor: colors.white },
         }}
       />
-      <Stack.Screen
-        name="(direct)/works/[id]/index"
-        options={{
-          ...Platform.select({
-            web: {
-              presentation: "transparentModal",
-              animation: "fade",
-            },
-            default: {
-              presentation: "modal",
-            },
-          }),
-          headerShown: false,
-        }}
-      />
     </Stack>
   );
 }
