@@ -41,10 +41,10 @@ export function Artwork({ department, artwork }: Props) {
             )}
           >
             <Text
-              numberOfLines={1}
               className={classNames(
                 "text-center sm:text-start",
                 "text-xl font-semibold mb-1",
+                "line-clamp-4 sm:line-clamp-1",
               )}
             >
               {artwork.title}

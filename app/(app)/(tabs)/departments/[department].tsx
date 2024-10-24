@@ -1,59 +1,34 @@
-import { View, Text, FlatList, Pressable } from "react-native";
-import { Stack, Link, useLocalSearchParams, Href } from "expo-router";
-import { Image } from "expo-image";
+import { View, FlatList } from "react-native";
+import { Stack, useLocalSearchParams } from "expo-router";
 import { useWorksForDepartmentQuery } from "@/data/hooks/useWorksForDepartmentQuery";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { LoadingShade } from "@/components/LoadingShade";
+import { Artwork } from "@/components/Artwork";
+import { useMediaQuery } from "@/constants/useMediaQuery";
 
 export default function DepartmentScreen() {
   const { department }: { department: string } = useLocalSearchParams();
+  const { isSm } = useMediaQuery();
+  const { bottom } = useSafeAreaInsets();
 
   const query = useWorksForDepartmentQuery(department);
-
-  const insets = useSafeAreaInsets();
 
   return (
     <View className="flex-1">
       <Stack.Screen
         options={{
           title: department,
+          headerBackTitleVisible: false,
         }}
       />
       <FlatList
+        key={isSm ? "large" : "small"} // to force a re-render when numColumns changes
+        numColumns={isSm ? 2 : 1}
+        contentContainerStyle={{ paddingBottom: bottom + (isSm ? 0 : 80) }}
         contentContainerClassName="mb-safe bg-shade-0 lg:w-3/4 lg:self-center"
-        contentContainerStyle={{ paddingBottom: insets.bottom }}
         data={query.data}
         keyExtractor={(item: any) => item.id}
-        renderItem={({ item }) => (
-          <Link asChild href={`/works/${item.id}/` as Href}>
-            <Pressable>
-              <View className="flex-row bg-shade-1">
-                <View className="flex-1 justify-start">
-                  <Text className="text-2xl font-semibold bg-shade-2 pl-4 py-2">
-                    {item.title}
-                  </Text>
-                  <View className="my-2 mx-2">
-                    <Text className="italic pl-4">{item.date_text}</Text>
-                    {item.creators.length ? (
-                      <Text className="italic pl-4">
-                        {item.creators[0].description}
-                      </Text>
-                    ) : null}
-                  </View>
-                </View>
-                <View className="py-2 px-4 bg-shade-2 justify-center">
-                  <Image
-                    className="h-28 w-28"
-                    source={{ uri: item.images.web.url }}
-                    contentFit="contain"
-                    transition={500}
-                  />
-                </View>
-              </View>
-            </Pressable>
-          </Link>
-        )}
-        ItemSeparatorComponent={() => <View className="h-1 bg-shade-0" />}
+        renderItem={({ item }) => <Artwork artwork={item} />}
       />
       <LoadingShade isLoading={query.isLoading} />
     </View>

@@ -12,7 +12,10 @@ export default function StackLayout() {
     <Stack screenOptions={{ contentStyle: { backgroundColor: colors.white } }}>
       <Stack.Screen
         name="index"
-        options={{ title: "Departments", headerShown: false }}
+        options={{
+          title: "Departments",
+          headerShown: false,
+        }}
       />
     </Stack>
   );

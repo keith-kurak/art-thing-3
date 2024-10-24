@@ -6,6 +6,7 @@ import { useAuth } from "@/data/hooks/useAuth";
 import { Artwork } from "@/components/Artwork";
 import { useMediaQuery } from "@/constants/useMediaQuery";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import classNames from "classnames";
 
 export default function TabTwoScreen() {
   const { isSm } = useMediaQuery();
@@ -25,16 +26,27 @@ export default function TabTwoScreen() {
         numColumns={isSm ? 2 : 1}
         contentContainerClassName="my-safe lg:w-3/4 lg:self-center"
         ListHeaderComponent={
-          <View>
+          <View className="bg-white">
             <View className="py-4 px-4">
               <View className="flex-row items-center gap-x-2">
                 <Image
-                  className="h-24 w-24 rounded-full"
+                  className={classNames(
+                    "h-16 sm:h-24",
+                    "w-16 sm:w-24",
+                    "rounded-full",
+                  )}
                   source={require("@/assets/images/profile.png")}
                 />
                 <View className="flex-1">
-                  <Text className="text-4xl font-semibold">Your Name</Text>
-                  <Text className="italic font-light">
+                  <Text
+                    className={classNames(
+                      "text-xl sm:text-4xl",
+                      "font-semibold",
+                    )}
+                  >
+                    Your Name
+                  </Text>
+                  <Text className="italic font-light text-sm sm:text-base">
                     Member since 2023/03/14
                   </Text>
                 </View>
@@ -43,7 +55,13 @@ export default function TabTwoScreen() {
                     logout();
                   }}
                 >
-                  <View className="py-4 px-8 bg-black">
+                  <View
+                    className={classNames(
+                      "py-3 sm:py-4",
+                      "px-6 sm:px-8",
+                      "bg-black",
+                    )}
+                  >
                     <Text className="text-white font-semibold tracking-widest">
                       Logout
                     </Text>
