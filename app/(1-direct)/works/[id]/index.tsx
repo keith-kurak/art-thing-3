@@ -20,9 +20,9 @@ export default function WorkScreen() {
   const { authToken } = useAuth();
 
   // if I do this, (tabs) doesn't render behind it and the back/ close button doesn't work, not sure why
-  if (authToken) {
+/*  if (authToken) {
     return <Redirect href={`/(app)/works/${id}`} />;
-  }
+  }*/
 
   return (
     <View
