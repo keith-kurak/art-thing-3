@@ -20,7 +20,7 @@ export default function TabOneScreen() {
       contentContainerClassName="my-safe lg:w-3/4 lg:self-center"
       keyExtractor={(item) => item.department}
       renderItem={({ item }) => (
-        <Link asChild href={`/departments/${item.department}`}>
+        <Link asChild href={`/exhibits/${item.department}`}>
           <Pressable className="sm:flex-1 m-4">
             <Image
               className="w-full aspect-square"
