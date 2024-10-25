@@ -1,3 +1,4 @@
+import React from "react";
 import { View, Platform, Text } from "react-native";
 import { Link, Redirect, useLocalSearchParams } from "expo-router";
 import { Image } from "expo-image";
@@ -19,16 +20,16 @@ export default function WorkScreen() {
   const { authToken } = useAuth();
 
   // if I do this, (tabs) doesn't render behind it and the back/ close button doesn't work, not sure why
-  /*if (authToken) {
+  if (authToken) {
     return <Redirect href={`/(app)/works/${id}`} />;
-  }*/
+  }
 
   return (
     <View
       className={classNames(
         "bg-white",
         "flex-1 justify-center",
-        Platform.OS === "android" && "pt-safe",
+        Platform.OS === "android" && "pt-safe"
       )}
     >
       <View className="flex-row items-center justify-between bg-white border-b border-b-shade-2 my-2 mx-4">
