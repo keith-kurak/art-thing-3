@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Art Museum!",
-    "slug": "art-thing-2",
+    "slug": "art-thing-3",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -34,21 +34,21 @@
       [
         "expo-router",
         {
-          "origin": "https://artthing2.dev/"
+          "origin": "https://artthing3.dev/"
         }
       ],
+      "expo-font",
       [
-        "expo-quick-actions",
+        "expo-build-properties",
         {
-          "androidIcons": {
-            "help_icon": {
-              "foregroundImage": "./assets/images/adaptive-icon-help.png",
-              "backgroundColor": "#29cfc1"
-            }
+          "ios": {
+            "newArchEnabled": true
+          },
+          "android": {
+            "newArchEnabled": true
           }
         }
-      ],
-      "expo-font"
+      ]
     ],
     "experiments": {
       "typedRoutes": true
@@ -58,7 +58,7 @@
         "origin": "https://artthing2.dev/"
       },
       "eas": {
-        "projectId": "f6b73ba6-d0c7-4cb1-b789-d949aba9a851"
+        "projectId": "0affb066-ff93-4a87-b2e1-edc4faeb3348"
       }
     },
     "owner": "keith-kurak"
