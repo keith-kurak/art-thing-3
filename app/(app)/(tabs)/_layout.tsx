@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { Tabs, TabList, TabSlot, TabTrigger } from "expo-router/build/ui";
+import { Tabs, TabList, TabSlot, TabTrigger } from "expo-router/ui";
 import { Tabs as RNTabs } from "expo-router";
 import customColors from "@/constants/colors";
 import { TabBarIcon } from "@/components/TabBarIcon";
