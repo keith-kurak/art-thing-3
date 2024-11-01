@@ -3,7 +3,7 @@ module.exports = {
   extends: ["expo", "prettier"],
   plugins: ["prettier"],
   rules: {
-    "prettier/prettier": "error",
+    "prettier/prettier": "warn",
   },
   // will be fixed by https://github.com/expo/expo/pull/32203
   overrides: [
