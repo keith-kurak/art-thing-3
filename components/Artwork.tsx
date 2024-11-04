@@ -14,7 +14,7 @@ export function Artwork({ department, artwork }: Props) {
       className={classNames("mb-4 sm:mb-0", "px-4 py-2 gap-y-2 sm:basis-1/2")}
     >
       {department ? (
-        <Link asChild href={`/departments/${department}`}>
+        <Link asChild href={`/exhibits/${department}`}>
           <Pressable>
             <View className="flex-row items-center gap-x-2">
               <Text className="text-l uppercase font-bold tracking-widest">
