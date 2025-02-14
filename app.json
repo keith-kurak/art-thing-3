@@ -1,7 +1,8 @@
 {
   "expo": {
     "name": "Art Museum!",
-    "slug": "art-thing-2",
+    "slug": "art-thing-3",
+    "owner": "expo-production",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -16,14 +17,14 @@
       "**/*"
     ],
     "ios": {
-      "bundleIdentifier": "com.keithkurak.artthing2"
+      "bundleIdentifier": "com.keithkurak.artthing3"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.keithkurak.artthing2"
+      "package": "com.keithkurak.artthing3"
     },
     "web": {
       "bundler": "metro",
@@ -34,7 +35,7 @@
       [
         "expo-router",
         {
-          "origin": "https://artthing2.dev/"
+          "origin": "https://artthing3.dev/"
         }
       ],
       [
@@ -55,12 +56,11 @@
     },
     "extra": {
       "router": {
-        "origin": "https://artthing2.dev/"
+        "origin": "https://artthing3.dev/"
       },
       "eas": {
-        "projectId": "f6b73ba6-d0c7-4cb1-b789-d949aba9a851"
+        "projectId": "e825b2ad-a8e0-4fe7-89a7-f3c9a1c768c7"
       }
-    },
-    "owner": "keith-kurak"
+    }
   }
 }
