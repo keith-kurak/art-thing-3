@@ -7,7 +7,7 @@ const departments = uniqBy(
   (item: { department: string; images: any }) => item.department,
 );
 
-export const useDepartmentsQuery = function () {
+export const useExhibitsQuery = function () {
   // Queries
   const query = useQuery({
     queryKey: [`departments`],

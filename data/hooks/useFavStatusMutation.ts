@@ -8,15 +8,18 @@ export const useFavStatusMutation = function () {
 
   // Queries
   const query = useMutation({
-    mutationFn: async (favStatus: { id: string; status: boolean }) => {
-      const { id, status } = favStatus;
+    mutationFn: async (favStatus: { workId: string; status: boolean }) => {
+      const { workId, status } = favStatus;
       if (process.env.EXPO_PUBLIC_USE_LOCAL_DATA) {
-        return await postToLocal(id, status);
+        return await postToLocal(workId, status);
       }
-      return await postToServer(authToken, id, status);
+      return await postToServer(authToken, workId, status);
     },
     onSuccess: (data, variables) => {
-      queryClient.setQueryData([`works:fav:${variables.id}`], variables.status);
+      queryClient.setQueryData(
+        [`works:fav:${variables.workId}`],
+        variables.status
+      );
       queryClient.invalidateQueries({ queryKey: ["favs"] });
     },
   });

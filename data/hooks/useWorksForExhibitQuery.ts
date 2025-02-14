@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const data = require("../api/cma_artwork.json");
 
-export const useWorksForDepartmentQuery = function (department: string) {
+export const useWorksForExhibitQuery = function (department: string) {
   // Queries
   const query = useQuery({
     queryKey: [`departments:${department}`],

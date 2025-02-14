@@ -1,12 +1,12 @@
 import { Text, FlatList, Pressable, View } from "react-native";
 import { Link } from "expo-router";
 import { Image } from "expo-image";
-import { useDepartmentsQuery } from "@/data/hooks/useDepartmentsQuery";
+import { useExhibitsQuery } from "@/data/hooks/useExhibitsQuery";
 import { useMediaQuery } from "@/constants/useMediaQuery";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function TabOneScreen() {
-  const query = useDepartmentsQuery();
+  const query = useExhibitsQuery();
   const { bottom } = useSafeAreaInsets();
 
   const { isSm } = useMediaQuery();
@@ -20,7 +20,7 @@ export default function TabOneScreen() {
       contentContainerClassName="my-safe lg:w-3/4 lg:self-center"
       keyExtractor={(item) => item.department}
       renderItem={({ item }) => (
-        <Link asChild href={`/departments/${item.department}`}>
+        <Link asChild href={`/exhibits/${item.department}`}>
           <Pressable className="sm:flex-1 m-4">
             <Image
               className="w-full aspect-square"
