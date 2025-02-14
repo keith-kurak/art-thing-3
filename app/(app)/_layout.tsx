@@ -19,7 +19,7 @@ export const unstable_settings = {
 export default function Layout() {
   const { authToken } = useAuth();
 
-  if (!authToken) {
+  if (!authToken && !process.env.EXPO_PUBLIC_DISABLE_LOGIN) {
     return <Redirect href="/sign-in" />;
   }
 
