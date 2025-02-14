@@ -34,32 +34,34 @@ export default function TabTwoScreen() {
         }
         ListHeaderComponent={
           <View className="bg-white">
-            <View className="py-4 px-4">
-              <View className="flex-row items-center gap-x-2">
-                <Image
-                  className={classNames(
-                    "h-16 sm:h-24",
-                    "w-16 sm:w-24",
-                    "rounded-full",
-                  )}
-                  source={require("@/assets/images/profile.png")}
-                />
-                <View className="flex-1">
-                  <Text
+            {process.env.EXPO_PUBLIC_DISABLE_LOGIN ? null : (
+              <View className="py-4 px-4">
+                <View className="flex-row items-center gap-x-2">
+                  <Image
                     className={classNames(
-                      "text-xl sm:text-4xl",
-                      "font-semibold",
+                      "h-16 sm:h-24",
+                      "w-16 sm:w-24",
+                      "rounded-full"
                     )}
-                  >
-                    Your Name
-                  </Text>
-                  <Text className="italic font-light text-sm sm:text-base">
-                    Member since 2023/03/14
-                  </Text>
+                    source={require("@/assets/images/profile.png")}
+                  />
+                  <View className="flex-1">
+                    <Text
+                      className={classNames(
+                        "text-xl sm:text-4xl",
+                        "font-semibold"
+                      )}
+                    >
+                      Your Name
+                    </Text>
+                    <Text className="italic font-light text-sm sm:text-base">
+                      Member since 2023/03/14
+                    </Text>
+                  </View>
+                  <Button onPress={() => logout()} label="Logout" />
                 </View>
-                <Button onPress={() => logout()} label="Logout" />
               </View>
-            </View>
+            )}
             <Text className="text-2xl tracking-widest px-4 py-2 font-semibold">
               Favorites
             </Text>
