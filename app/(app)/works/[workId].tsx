@@ -50,7 +50,7 @@ export default function WorkScreen() {
             </Pressable>
           </View>
           <View className="justify-center px-4">
-            {authToken && (
+            {authToken || process.env.EXPO_PUBLIC_DISABLE_LOGIN ? (
               <Pressable
                 className="active:opacity-50"
                 disabled={favQuery.isLoading || favMutation.isPending}
@@ -64,7 +64,7 @@ export default function WorkScreen() {
                   size={28}
                 />
               </Pressable>
-            )}
+            ) : null}
           </View>
         </View>
         <ArtworkDetail work={work} />
