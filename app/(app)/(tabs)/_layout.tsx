@@ -18,7 +18,7 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="(home)"
         options={{
           title: "Home",
           tabBarActiveTintColor: customColors.tint,
@@ -28,7 +28,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="exhibits"
+        name="(exhibits)"
         options={{
           title: "Exhibits",
           tabBarIcon: ({ color }) => (
